@@ -1,0 +1,15 @@
+.service-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-list {
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.service-list .menu-label {
+  text-transform: none;
+  font-size: 1em;
+}

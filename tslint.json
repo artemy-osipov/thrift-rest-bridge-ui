@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "tslint-angular"
+  ],
+  "rules": {
+    "use-component-view-encapsulation": false
+  }
+}
