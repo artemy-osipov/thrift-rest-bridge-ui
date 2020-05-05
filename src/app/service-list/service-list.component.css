@@ -1,12 +1,13 @@
 .service-form {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .service-list {
   overflow: auto;
   margin-top: 20px;
+  flex-grow: 1;
 }
 
 .service-list .menu-label {

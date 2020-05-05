@@ -1,0 +1,17 @@
+.proxy-service {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-row {
+  display: flex;
+}
+
+.action-row button {
+  margin-left: 10px;
+}
+
+.request-row textarea {
+  height: 30vh;
+}
