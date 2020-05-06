@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { Service } from 'app/services/state/service.model';
+import { Service, OperationId } from 'app/bridge/shared/service.model';
 import { ServicesStore } from './services.store';
 import { ServicesGateway } from './services.gateway';
 
@@ -15,8 +15,13 @@ export class ServicesService {
   ) { }
 
   list(): Observable<Service[]> {
-    return this.gateway.list().pipe(
-      tap(services => this.store.set(services))
-    );
+    return this.gateway.list()
+      .pipe(
+        tap(services => this.store.set(services))
+      );
+  }
+
+  getTemplate(operationId: OperationId): Observable<string> {
+    return this.gateway.getTemplate(operationId.serviceId, operationId.opeartionName);
   }
 }

@@ -13,7 +13,7 @@
       </p>
       <ul class="menu-list">
         <li *ngFor="let operation of service.operations">
-          <a>{{operation.name}}</a>
+          <a (click)="select(service, operation)" [class.is-active]="isSelected(service, operation)">{{operation.name}}</a>
         </li>
       </ul>
     </ng-container>

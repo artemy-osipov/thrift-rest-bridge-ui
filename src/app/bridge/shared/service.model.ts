@@ -7,3 +7,5 @@ export interface Service {
 export interface Operation {
   name: string;
 }
+
+export type OperationId = { serviceId: string, opeartionName: string }

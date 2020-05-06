@@ -3,7 +3,7 @@ import { QueryEntity } from '@datorama/akita';
 import { Observable } from 'rxjs';
 
 import { ServicesState, ServicesStore } from './services.store';
-import { Service } from 'app/services/state/service.model';
+import { Service } from 'app/bridge/shared/service.model';
 import { map } from 'rxjs/operators';
 import { services } from './services.mocks';
 
@@ -35,8 +35,7 @@ export class ServicesQuery extends QueryEntity<ServicesState, Service> {
       return service;
     } else {
       return {
-        id: service.id,
-        name: service.name,
+        ...service,
         operations: service.operations.filter(o => o.name.toLowerCase().includes(term))
       };
     }

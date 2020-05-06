@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EntityState, StoreConfig, EntityStore } from '@datorama/akita';
 
-import { Service } from 'app/services/state/service.model';
+import { Service } from 'app/bridge/shared/service.model';
 
 export interface ServicesState extends EntityState<Service> { }
 

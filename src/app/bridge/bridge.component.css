@@ -1,0 +1,18 @@
+section {
+  display: flex;
+  height: 100%;
+}
+
+nav {
+  width: 20%;
+  background-color: #d3d3d3;
+}
+
+main {
+  flex-grow: 1;
+}
+
+nav, main {
+  padding: 10px;
+  overflow: hidden;
+}

@@ -1,6 +1,11 @@
+export const template = {
+  "id": "",
+  "name": ""
+}
+
 export const services = [
   {
-    "id": "123",
+    "id": "1",
     "name": "SomeApiService",
     "operations": [
       {
@@ -24,7 +29,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "2",
     "name": "SomeApiService",
     "operations": [
       {
@@ -48,7 +53,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "3",
     "name": "SomeApiService",
     "operations": [
       {
@@ -72,7 +77,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "4",
     "name": "SomeApiService",
     "operations": [
       {
@@ -96,7 +101,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "5",
     "name": "SomeApiService",
     "operations": [
       {
@@ -120,7 +125,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "6",
     "name": "SomeApiService",
     "operations": [
       {
@@ -144,7 +149,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "7",
     "name": "SomeApiService",
     "operations": [
       {
@@ -168,7 +173,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "8",
     "name": "SomeApiService",
     "operations": [
       {
@@ -192,7 +197,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "9",
     "name": "SomeApiService",
     "operations": [
       {
@@ -216,7 +221,7 @@ export const services = [
     ]
   },
   {
-    "id": "123",
+    "id": "10",
     "name": "SomeApiService",
     "operations": [
       {

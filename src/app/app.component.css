@@ -1,19 +1,10 @@
-.body {
-  display: grid;
-  grid-template-columns: 20% auto;
-  grid-template-rows: auto 1fr;
+section {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
-header {
-  grid-column: span 2;
-}
-
-nav, main {
-  padding: 10px;
-  overflow: hidden;
-}
-
-nav {
-  background-color: #d3d3d3;
+main {
+  flex-grow: 1;
+  min-height: 0;
 }
