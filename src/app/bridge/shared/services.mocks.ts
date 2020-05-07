@@ -1,3 +1,7 @@
+export const response = {
+  "result": "some result"
+}
+
 export const template = {
   "id": "",
   "name": ""

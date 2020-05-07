@@ -1,9 +1,9 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { JsonEditorOptions } from 'ang-jsoneditor';
 
 import { OperationId } from 'app/bridge/shared/service.model';
 import { ServicesService } from 'app/bridge/shared/services.service';
-import { FormControl } from '@angular/forms';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-operation-proxy',
@@ -13,26 +13,57 @@ import { map } from 'rxjs/operators';
 export class OperationProxyComponent {
 
   @Input() opeartionId?: OperationId;
-  request = new FormControl();
+
+  form: FormGroup;
+  editorOptions = new JsonEditorOptions();
+  response?: string;
+  loading = false;
 
   constructor(
     private servicesService: ServicesService
-  ) { }
+  ) {
+    this.editorOptions.mode = 'code';
+    this.editorOptions.mainMenuBar = false;
+
+    this.form = new FormGroup({
+      'endpoint': new FormControl('', [Validators.required]),
+      'request': new FormControl('')
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.opeartionId && changes.opeartionId.currentValue) {
-      this.fillTemplate(changes.opeartionId.currentValue);
+      this.fillForm(changes.opeartionId.currentValue);
     }
   }
 
-  fillTemplate(opeartionId: OperationId) {
+  fillForm(opeartionId: OperationId) {
     this.servicesService.getTemplate(opeartionId)
-      .pipe(
-        map(data => JSON.parse(data)),
-        map(data => JSON.stringify(data, null, 2))
-      )
       .subscribe(
-        data => this.request.setValue(data)
+        data => this.f['request'].setValue(data),
+        err => this.onError()
       );
+  }
+
+  get f() {
+    return this.form.controls;
+  }
+
+  proxy() {
+    if (this.form.valid) {
+      this.loading = true;
+      this.response = "";
+      const { endpoint, request } = this.form.value;
+      this.servicesService.proxy(this.opeartionId!, endpoint, request)
+        .subscribe(
+          data => this.response = JSON.stringify(data, null, 4),
+          err => this.onError(),
+          () => this.loading = false
+        );
+    }
+  }
+
+  onError() {
+    this.response = "Something went wrong :("
   }
 }

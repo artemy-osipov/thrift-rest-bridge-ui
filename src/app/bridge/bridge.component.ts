@@ -11,7 +11,6 @@ export class BridgeComponent {
   currentOperationId?: OperationId
 
   onSelected(selected: OperationId) {
-    console.log("was selected", selected);
     this.currentOperationId = selected;
   }
 }

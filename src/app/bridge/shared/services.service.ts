@@ -24,4 +24,13 @@ export class ServicesService {
   getTemplate(operationId: OperationId): Observable<string> {
     return this.gateway.getTemplate(operationId.serviceId, operationId.opeartionName);
   }
+
+  proxy(operationId: OperationId, endpoint: string, request: Object): Observable<Object> {
+    return this.gateway.proxy(
+      operationId.serviceId,
+      operationId.opeartionName,
+      endpoint,
+      request
+    );
+  }
 }

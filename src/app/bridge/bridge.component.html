@@ -3,6 +3,6 @@
     <app-service-list (selected)="onSelected($event)"></app-service-list>
   </nav>
   <main>
-    <app-operation-proxy [opeartionId]="currentOperationId"></app-operation-proxy>
+    <app-operation-proxy [opeartionId]="currentOperationId" *ngIf="currentOperationId"></app-operation-proxy>
   </main>
 </section>

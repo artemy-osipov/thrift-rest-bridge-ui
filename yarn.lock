@@ -1495,6 +1495,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sphinxxxx/color-conversion@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@sphinxxxx/color-conversion@npm:2.2.2"
+  checksum: 3/30ee48db147c2f6e82063d92ad6f1cfad0d9554c348ab678f338130f348f623b439c09aaaab19625452f858e723ab796cf36b323181ea6118dd7a8a5e0291d10
+  languageName: node
+  linkType: hard
+
 "@types/color-name@npm:^1.1.1":
   version: 1.1.1
   resolution: "@types/color-name@npm:1.1.1"
@@ -1821,6 +1828,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ace-builds@npm:^1.4.11":
+  version: 1.4.11
+  resolution: "ace-builds@npm:1.4.11"
+  checksum: 3/d2376746a126b2a996c3dfc407ca85d5bc1761975b872a998377deb5a549efcb4a6145bd7f35b2fc06bc12f18ac5de7eac9730baf8a5d1b595fc5b3df5489a90
+  languageName: node
+  linkType: hard
+
 "acorn@npm:^6.2.1":
   version: 6.4.1
   resolution: "acorn@npm:6.4.1"
@@ -1923,10 +1937,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ajv@npm:^6.12.1":
+  version: 6.12.2
+  resolution: "ajv@npm:6.12.2"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    fast-json-stable-stringify: ^2.0.0
+    json-schema-traverse: ^0.4.1
+    uri-js: ^4.2.2
+  checksum: 3/09f3d7992c4a6e554e65accab279878c2da2a7e3ca782032de51c7c91d80a43a3e2aeb26efb8e8950b3941a89882f21aaca1170dafada784a7a0f275b5e6e745
+  languageName: node
+  linkType: hard
+
 "alphanum-sort@npm:^1.0.0":
   version: 1.0.2
   resolution: "alphanum-sort@npm:1.0.2"
   checksum: 3/28bad91719e15959e36a791a3538924e07da356ebe3b5f992e7668e8018cfc417a7ba4a69512771e5ffa306c7e028435c7748546f66f72d4f7b0ad694cf55069
+  languageName: node
+  linkType: hard
+
+"ang-jsoneditor@npm:^1.9.2":
+  version: 1.9.2
+  resolution: "ang-jsoneditor@npm:1.9.2"
+  peerDependencies:
+    "@angular/common": "*"
+    "@angular/core": "*"
+    jsoneditor: ^7.0.2
+    tslib: ^1.10.0
+  checksum: 3/87a51c3d2101154a9150f2d47fad2de04c778dd679a1b58448d36687203f85012375c7351da0864f04df6248ee490235f8e75adedd95b74ff2ab5ae5a625db38
   languageName: node
   linkType: hard
 
@@ -6368,6 +6406,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"javascript-natural-sort@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "javascript-natural-sort@npm:0.7.1"
+  checksum: 3/f097317419cf0be44aa491a3a7b7c8dfa3590852e994641afb6ea4a7e57e5dae58d9198dd5fa0b98585f296f91f534100825e734f9b69cef65728819f50d701b
+  languageName: node
+  linkType: hard
+
 "jest-worker@npm:25.1.0, jest-worker@npm:^25.1.0":
   version: 25.1.0
   resolution: "jest-worker@npm:25.1.0"
@@ -6375,6 +6420,13 @@ fsevents@~2.1.2:
     merge-stream: ^2.0.0
     supports-color: ^7.0.0
   checksum: 3/d2345230d5b986e50e57235b519779454ef49d0821bbebd076cd530663b780efd2234d69e37776fce34c9fa1951ce5ec8f77c1587e33c513e0200d225b69733b
+  languageName: node
+  linkType: hard
+
+"jmespath@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "jmespath@npm:0.15.0"
+  checksum: 3/b3edb0b9773571d72dc1aa2d5590fa0f82419a0a04d5a0d09aee93219f41d046ea9cf3c36931fc48d9430348ca575530beab5968923544136cc8ddcd49ff7a47
   languageName: node
   linkType: hard
 
@@ -6443,6 +6495,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"json-source-map@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "json-source-map@npm:0.6.1"
+  checksum: 3/664179fd574faafae523482613d21aa38d7e87e7f49c723f0efaa94c85b046874efd76c5a799187d6558a28b25a2c5c695b1700b544a79d5a87db3ad3a302c35
+  languageName: node
+  linkType: hard
+
 "json-stringify-safe@npm:~5.0.1":
   version: 5.0.1
   resolution: "json-stringify-safe@npm:5.0.1"
@@ -6476,6 +6535,22 @@ fsevents@~2.1.2:
   bin:
     json5: lib/cli.js
   checksum: 3/957e4937106cf59975aa0281e68911534d65c8a25be5b4d3559aa55eba351ccab516a943a60ba33e461e4b8af749939986e311de910cbcfd197410b57d971741
+  languageName: node
+  linkType: hard
+
+"jsoneditor@npm:^8.6.6":
+  version: 8.6.6
+  resolution: "jsoneditor@npm:8.6.6"
+  dependencies:
+    ace-builds: ^1.4.11
+    ajv: ^6.12.1
+    javascript-natural-sort: ^0.7.1
+    jmespath: ^0.15.0
+    json-source-map: ^0.6.1
+    mobius1-selectr: ^2.4.13
+    picomodal: ^3.0.0
+    vanilla-picker: ^2.10.1
+  checksum: 3/0bfa43ee506bfd93f908e722bf7e50bd5381f189559089d47e3820aadda2d37be92fb7c6542e79b889ca7ea68d3559d08e9f53120ad33180d06e5d0c74e6de09
   languageName: node
   linkType: hard
 
@@ -7289,6 +7364,13 @@ fsevents@~2.1.2:
   bin:
     mkdirp: bin/cmd.js
   checksum: 3/1aa3a6a2d7514f094a91329ec09994f5d32d2955a4985ecbb3d86f2aaeafc4aa11521f98d606144c1d49cd9835004d9a73342709b8c692c92e59eacf37412468
+  languageName: node
+  linkType: hard
+
+"mobius1-selectr@npm:^2.4.13":
+  version: 2.4.13
+  resolution: "mobius1-selectr@npm:2.4.13"
+  checksum: 3/73153fda141f8c50a47d710c8ba1867913bcdd5feac869bca7372f4ff8e1017f2b4a5a16af143b1058373cb97a54dba10d43d4402786a9ec83222c0e82770def
   languageName: node
   linkType: hard
 
@@ -8303,6 +8385,13 @@ fsevents@~2.1.2:
   version: 2.2.2
   resolution: "picomatch@npm:2.2.2"
   checksum: 3/20fa75e0a58b39d83425b3db68744d5f6f361fd4fd66ec7745d884036d502abba0d553a637703af79939b844164b13e60eea339ccb043d7fbd74c3da2592b864
+  languageName: node
+  linkType: hard
+
+"picomodal@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "picomodal@npm:3.0.0"
+  checksum: 3/fd91f6b36ae4fd725149bd2b3111ce063dd83c2a8cd66cf53bd6213148c7a100cc0253faaaed0393bb10a39d9711b458d554b436f4ca80ff45a24b9b8c4a14f5
   languageName: node
   linkType: hard
 
@@ -10767,10 +10856,12 @@ fsevents@~2.1.2:
     "@types/jasmine": ~3.5.0
     "@types/jasminewd2": ~2.0.3
     "@types/node": ^12.11.1
+    ang-jsoneditor: ^1.9.2
     bulma: ^0.8.0
     codelyzer: ^5.1.2
     jasmine-core: ~3.5.0
     jasmine-spec-reporter: ~4.2.1
+    jsoneditor: ^8.6.6
     karma: ~5.0.0
     karma-chrome-launcher: ~3.1.0
     karma-coverage-istanbul-reporter: ~2.1.0
@@ -11337,6 +11428,15 @@ fsevents@~2.1.2:
   dependencies:
     builtins: ^1.0.3
   checksum: 3/3c5a5b154a32d141a8fff660e4cdfcbd359bfafb1fc544772d50fb04377bea2eb7073bd49d914309c21c1fd19af68849e8022791573b88fc6413560a8dcf5016
+  languageName: node
+  linkType: hard
+
+"vanilla-picker@npm:^2.10.1":
+  version: 2.10.1
+  resolution: "vanilla-picker@npm:2.10.1"
+  dependencies:
+    "@sphinxxxx/color-conversion": ^2.2.2
+  checksum: 3/7cbb1b57cf155e9a9b68a4f34aeb1f1c8e305c3c3539aa7e069d8b180334b41437a8e71d18710fbc26de7612fa0497f8b63d64b76836cabb50ee26fa663d996e
   languageName: node
   linkType: hard
 

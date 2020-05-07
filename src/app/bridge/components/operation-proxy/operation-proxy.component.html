@@ -1,14 +1,16 @@
-<form class="proxy-service">
+<form class="proxy-service" [formGroup]="form" (ngSubmit)="proxy()">
   <div class="action-row">
-    <input type="text" class="input" placeholder="Endpoint">
-    <button type="button" class="button is-info">Send</button>
+    <input type="text" placeholder="Endpoint" class="input" [class.is-danger]="f.endpoint.invalid" formControlName="endpoint">
+    <button type="submit" class="button is-info">Send</button>
   </div>
   <hr/>
   <div class="request-row">
-    <textarea class="textarea" placeholder="Request" [formControl]="request"></textarea>
+    <json-editor [options]="editorOptions" formControlName="request"></json-editor>
   </div>
   <hr/>
   <div class="response-row">
-    <p></p>
+    <div class="control" [class.is-loading]="loading">
+      <textarea disabled *ngIf="response" value="{{response}}"></textarea>
+    </div>
   </div>
 </form>
