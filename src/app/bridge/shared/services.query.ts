@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { ServicesState, ServicesStore } from './services.store';
 import { Service } from 'app/bridge/shared/service.model';
 import { map } from 'rxjs/operators';
-import { services } from './services.mocks';
 
 @Injectable({ providedIn: 'root' })
 export class ServicesQuery extends QueryEntity<ServicesState, Service> {
