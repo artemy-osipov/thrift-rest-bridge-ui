@@ -12,7 +12,7 @@ import { ServicesService } from 'app/bridge/shared/services.service';
 })
 export class OperationProxyComponent {
 
-  @Input() opeartionId?: OperationId;
+  @Input() opeartionId!: OperationId;
 
   form: FormGroup;
   editorOptions = new JsonEditorOptions();
@@ -33,12 +33,12 @@ export class OperationProxyComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.opeartionId && changes.opeartionId.currentValue) {
-      this.fillForm(changes.opeartionId.currentValue);
+      this.fillTemplateRequest();
     }
   }
 
-  fillForm(opeartionId: OperationId) {
-    this.servicesService.getTemplate(opeartionId)
+  fillTemplateRequest() {
+    this.servicesService.getTemplate(this.opeartionId)
       .subscribe(
         data => this.f['request'].setValue(data),
         err => this.onError()
@@ -54,7 +54,7 @@ export class OperationProxyComponent {
       this.loading = true;
       this.response = "";
       const { endpoint, request } = this.form.value;
-      this.servicesService.proxy(this.opeartionId!, endpoint, request)
+      this.servicesService.proxy(this.opeartionId, endpoint, request)
         .subscribe(
           data => this.response = JSON.stringify(data, null, 4),
           err => this.onError(),

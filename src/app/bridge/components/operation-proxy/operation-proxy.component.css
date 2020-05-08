@@ -8,8 +8,25 @@
   display: flex;
 }
 
-.action-row button {
+.action-row .split-button {
   margin-left: 10px;
+  display: inline-flex;
+}
+
+.action-row .split-button button {
+  border-color: #837ea9;
+}
+
+.action-row .split-button > button {
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border-right: 0px;
+}
+
+.action-row .split-button .dropdown button {
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  width: 75%;
 }
 
 :host ::ng-deep json-editor,
