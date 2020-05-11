@@ -14,12 +14,7 @@ import { startWith, switchMap, debounceTime } from 'rxjs/operators';
 })
 export class ServiceListComponent implements OnInit {
   search = new FormControl();
-  services$: Observable<Service[]> = this.search.valueChanges
-    .pipe(
-      debounceTime(100),
-      startWith(''),
-      switchMap(term => this.servicesQuery.filtered(term))
-    )
+  services$: Observable<Service[]>;
 
   @Output() selected = new EventEmitter<OperationId>();
   wasSelected?: OperationId;
@@ -27,7 +22,14 @@ export class ServiceListComponent implements OnInit {
   constructor(
     private servicesService: ServicesService,
     private servicesQuery: ServicesQuery
-  ) { }
+  ) {
+    this.services$ = this.search.valueChanges
+      .pipe(
+        debounceTime(100),
+        startWith(''),
+        switchMap(term => this.servicesQuery.filtered(term))
+      );
+  }
 
   ngOnInit() {
     this.servicesService.list().subscribe();
@@ -45,7 +47,6 @@ export class ServiceListComponent implements OnInit {
       serviceId: service.id,
       opeartionName: operation.name
     };
-    this.selected.emit(this.wasSelected)
+    this.selected.emit(this.wasSelected);
   }
-
 }

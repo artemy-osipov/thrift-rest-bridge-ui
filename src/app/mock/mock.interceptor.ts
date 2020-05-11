@@ -42,7 +42,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     function ok(body?: Object) {
-      return of(new HttpResponse({ status: 200, body }))
+      return of(new HttpResponse({ status: 200, body }));
     }
   }
 }

@@ -14,8 +14,8 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
           <div class="dropdown-content">
-            <a class="dropdown-item" (click)="fillTemplateRequest()">
-              Clear
+            <a class="dropdown-item" (click)="resetForm()">
+              Reset body
             </a>
           </div>
         </div>
@@ -24,7 +24,7 @@
   </div>
   <hr />
   <div class="request-row">
-    <json-editor [options]="editorOptions" formControlName="request"></json-editor>
+    <json-editor [options]="editorOptions" formControlName="body"></json-editor>
   </div>
   <hr />
   <div class="response-row">

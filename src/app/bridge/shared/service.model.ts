@@ -8,4 +8,12 @@ export interface Operation {
   name: string;
 }
 
-export type OperationId = { serviceId: string, opeartionName: string }
+export interface OperationId {
+  serviceId: string;
+  opeartionName: string;
+}
+
+export interface ProxyRequest {
+  endpoint: string;
+  body: Object;
+}

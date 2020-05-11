@@ -26,7 +26,7 @@ export class ServicesQuery extends QueryEntity<ServicesState, Service> {
       )
       .filter(
         s => s.operations.length
-      )
+      );
   }
 
   private filterOperations(service: Service, term: string): Service {

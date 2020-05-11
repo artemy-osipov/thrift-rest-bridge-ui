@@ -1,371 +1,371 @@
 export const response = {
-  "result": "some result"
-}
+  'result': 'some result'
+};
 
 export const template = {
-  "id": "",
-  "name": ""
-}
+  'id': '',
+  'name': ''
+};
 
 export const services = [
   {
-    "id": "5eb4a8c808dfe857ed9e388b",
-    "name": "NikudaApi",
-    "operations": [
+    'id': '5eb4a8c808dfe857ed9e388b',
+    'name': 'NikudaApi',
+    'operations': [
       {
-        "name": "getInsurety"
+        'name': 'getInsurety'
       },
       {
-        "name": "isTelpod"
+        'name': 'isTelpod'
       },
       {
-        "name": "isIsotronic"
+        'name': 'isIsotronic'
       },
       {
-        "name": "isInsectus"
+        'name': 'isInsectus'
       },
       {
-        "name": "setGeekola"
+        'name': 'setGeekola'
       },
       {
-        "name": "getSchoolio"
+        'name': 'getSchoolio'
       },
       {
-        "name": "setCorecom"
+        'name': 'setCorecom'
       },
       {
-        "name": "getBrainclip"
+        'name': 'getBrainclip'
       },
       {
-        "name": "getWrapture"
+        'name': 'getWrapture'
       },
       {
-        "name": "isGeekosis"
+        'name': 'isGeekosis'
       }
     ]
   },
   {
-    "id": "5eb4a8c87e7b429b81231baa",
-    "name": "VelityApi",
-    "operations": [
+    'id': '5eb4a8c87e7b429b81231baa',
+    'name': 'VelityApi',
+    'operations': [
       {
-        "name": "getQuarx"
+        'name': 'getQuarx'
       },
       {
-        "name": "isAssitia"
+        'name': 'isAssitia'
       },
       {
-        "name": "setBiotica"
+        'name': 'setBiotica'
       },
       {
-        "name": "isStralum"
+        'name': 'isStralum'
       },
       {
-        "name": "setEcolight"
+        'name': 'setEcolight'
       },
       {
-        "name": "isKraggle"
+        'name': 'isKraggle'
       },
       {
-        "name": "setSensate"
+        'name': 'setSensate'
       },
       {
-        "name": "isNamebox"
+        'name': 'isNamebox'
       },
       {
-        "name": "isRoboid"
+        'name': 'isRoboid'
       },
       {
-        "name": "getVetron"
+        'name': 'getVetron'
       }
     ]
   },
   {
-    "id": "5eb4a8c85536b82aa5cad4cb",
-    "name": "LyrichordApi",
-    "operations": [
+    'id': '5eb4a8c85536b82aa5cad4cb',
+    'name': 'LyrichordApi',
+    'operations': [
       {
-        "name": "setQuility"
+        'name': 'setQuility'
       },
       {
-        "name": "getZerology"
+        'name': 'getZerology'
       },
       {
-        "name": "setZanilla"
+        'name': 'setZanilla'
       },
       {
-        "name": "setDuoflex"
+        'name': 'setDuoflex'
       },
       {
-        "name": "setUpdat"
+        'name': 'setUpdat'
       },
       {
-        "name": "isBittor"
+        'name': 'isBittor'
       },
       {
-        "name": "setZytrek"
+        'name': 'setZytrek'
       },
       {
-        "name": "getZolavo"
+        'name': 'getZolavo'
       },
       {
-        "name": "setZyple"
+        'name': 'setZyple'
       },
       {
-        "name": "isAquazure"
+        'name': 'isAquazure'
       }
     ]
   },
   {
-    "id": "5eb4a8c8f2ea46cebe38899a",
-    "name": "SynkgenApi",
-    "operations": [
+    'id': '5eb4a8c8f2ea46cebe38899a',
+    'name': 'SynkgenApi',
+    'operations': [
       {
-        "name": "getPolarax"
+        'name': 'getPolarax'
       },
       {
-        "name": "getGeeknet"
+        'name': 'getGeeknet'
       },
       {
-        "name": "setZentry"
+        'name': 'setZentry'
       },
       {
-        "name": "getMoltonic"
+        'name': 'getMoltonic'
       },
       {
-        "name": "isZentury"
+        'name': 'isZentury'
       },
       {
-        "name": "setEdecine"
+        'name': 'setEdecine'
       },
       {
-        "name": "setComvey"
+        'name': 'setComvey'
       },
       {
-        "name": "getZuvy"
+        'name': 'getZuvy'
       },
       {
-        "name": "isRodeology"
+        'name': 'isRodeology'
       },
       {
-        "name": "getObliq"
+        'name': 'getObliq'
       }
     ]
   },
   {
-    "id": "5eb4a8c85abcb4839a5365cb",
-    "name": "ShepardApi",
-    "operations": [
+    'id': '5eb4a8c85abcb4839a5365cb',
+    'name': 'ShepardApi',
+    'operations': [
       {
-        "name": "getMarqet"
+        'name': 'getMarqet'
       },
       {
-        "name": "isTalae"
+        'name': 'isTalae'
       },
       {
-        "name": "setVortexaco"
+        'name': 'setVortexaco'
       },
       {
-        "name": "isTurnling"
+        'name': 'isTurnling'
       },
       {
-        "name": "setWaretel"
+        'name': 'setWaretel'
       },
       {
-        "name": "getEntropix"
+        'name': 'getEntropix'
       },
       {
-        "name": "setChorizon"
+        'name': 'setChorizon'
       },
       {
-        "name": "getComstar"
+        'name': 'getComstar'
       },
       {
-        "name": "isProgenex"
+        'name': 'isProgenex'
       },
       {
-        "name": "getWaterbaby"
+        'name': 'getWaterbaby'
       }
     ]
   },
   {
-    "id": "5eb4a8c8b08100ebfccb8fc2",
-    "name": "CombogenApi",
-    "operations": [
+    'id': '5eb4a8c8b08100ebfccb8fc2',
+    'name': 'CombogenApi',
+    'operations': [
       {
-        "name": "setAquoavo"
+        'name': 'setAquoavo'
       },
       {
-        "name": "getZounds"
+        'name': 'getZounds'
       },
       {
-        "name": "isSolaren"
+        'name': 'isSolaren'
       },
       {
-        "name": "isBaluba"
+        'name': 'isBaluba'
       },
       {
-        "name": "getBesto"
+        'name': 'getBesto'
       },
       {
-        "name": "setQuilm"
+        'name': 'setQuilm'
       },
       {
-        "name": "setMinga"
+        'name': 'setMinga'
       },
       {
-        "name": "isTemorak"
+        'name': 'isTemorak'
       },
       {
-        "name": "getAnivet"
+        'name': 'getAnivet'
       },
       {
-        "name": "getExtragen"
+        'name': 'getExtragen'
       }
     ]
   },
   {
-    "id": "5eb4a8c80d631f0a1b5e21fd",
-    "name": "IsologixApi",
-    "operations": [
+    'id': '5eb4a8c80d631f0a1b5e21fd',
+    'name': 'IsologixApi',
+    'operations': [
       {
-        "name": "isAnixang"
+        'name': 'isAnixang'
       },
       {
-        "name": "isBuzzopia"
+        'name': 'isBuzzopia'
       },
       {
-        "name": "setTerrago"
+        'name': 'setTerrago'
       },
       {
-        "name": "isBoilicon"
+        'name': 'isBoilicon'
       },
       {
-        "name": "setPortaline"
+        'name': 'setPortaline'
       },
       {
-        "name": "setPyramis"
+        'name': 'setPyramis'
       },
       {
-        "name": "setGeekol"
+        'name': 'setGeekol'
       },
       {
-        "name": "setXumonk"
+        'name': 'setXumonk'
       },
       {
-        "name": "setCenturia"
+        'name': 'setCenturia'
       },
       {
-        "name": "setBizmatic"
+        'name': 'setBizmatic'
       }
     ]
   },
   {
-    "id": "5eb4a8c8fa093d446934716c",
-    "name": "ExostreamApi",
-    "operations": [
+    'id': '5eb4a8c8fa093d446934716c',
+    'name': 'ExostreamApi',
+    'operations': [
       {
-        "name": "isRocklogic"
+        'name': 'isRocklogic'
       },
       {
-        "name": "isApexia"
+        'name': 'isApexia'
       },
       {
-        "name": "setEnersol"
+        'name': 'setEnersol'
       },
       {
-        "name": "isYogasm"
+        'name': 'isYogasm'
       },
       {
-        "name": "getAeora"
+        'name': 'getAeora'
       },
       {
-        "name": "isCombogene"
+        'name': 'isCombogene'
       },
       {
-        "name": "isLyria"
+        'name': 'isLyria'
       },
       {
-        "name": "isOverplex"
+        'name': 'isOverplex'
       },
       {
-        "name": "getEnaut"
+        'name': 'getEnaut'
       },
       {
-        "name": "setQaboos"
+        'name': 'setQaboos'
       }
     ]
   },
   {
-    "id": "5eb4a8c8a81ce48b14edd5b7",
-    "name": "PlexiaApi",
-    "operations": [
+    'id': '5eb4a8c8a81ce48b14edd5b7',
+    'name': 'PlexiaApi',
+    'operations': [
       {
-        "name": "getTurnabout"
+        'name': 'getTurnabout'
       },
       {
-        "name": "setOlympix"
+        'name': 'setOlympix'
       },
       {
-        "name": "getMusix"
+        'name': 'getMusix'
       },
       {
-        "name": "setIsbol"
+        'name': 'setIsbol'
       },
       {
-        "name": "getBoilcat"
+        'name': 'getBoilcat'
       },
       {
-        "name": "isAclima"
+        'name': 'isAclima'
       },
       {
-        "name": "getFiberox"
+        'name': 'getFiberox'
       },
       {
-        "name": "isSentia"
+        'name': 'isSentia'
       },
       {
-        "name": "getKyagoro"
+        'name': 'getKyagoro'
       },
       {
-        "name": "isMaximind"
+        'name': 'isMaximind'
       }
     ]
   },
   {
-    "id": "5eb4a8c8853e753d34f9d8a8",
-    "name": "VisualixApi",
-    "operations": [
+    'id': '5eb4a8c8853e753d34f9d8a8',
+    'name': 'VisualixApi',
+    'operations': [
       {
-        "name": "isMagneato"
+        'name': 'isMagneato'
       },
       {
-        "name": "getZepitope"
+        'name': 'getZepitope'
       },
       {
-        "name": "isBullzone"
+        'name': 'isBullzone'
       },
       {
-        "name": "getSupportal"
+        'name': 'getSupportal'
       },
       {
-        "name": "isXymonk"
+        'name': 'isXymonk'
       },
       {
-        "name": "getPyramia"
+        'name': 'getPyramia'
       },
       {
-        "name": "isFleetmix"
+        'name': 'isFleetmix'
       },
       {
-        "name": "isTropoli"
+        'name': 'isTropoli'
       },
       {
-        "name": "isNetur"
+        'name': 'isNetur'
       },
       {
-        "name": "setNimon"
+        'name': 'setNimon'
       }
     ]
   }
-]
+];

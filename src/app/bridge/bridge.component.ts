@@ -8,7 +8,7 @@ import { OperationId } from './shared/service.model';
 })
 export class BridgeComponent {
 
-  currentOperationId?: OperationId
+  currentOperationId?: OperationId;
 
   onSelected(selected: OperationId) {
     this.currentOperationId = selected;
