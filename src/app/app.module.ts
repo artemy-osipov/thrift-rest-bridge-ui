@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from 'app/app-routing.module';
 import { FontModule } from 'app/font.module';
-import { MaterialModule } from 'app/material.module';
 import { NgJsonEditorModule } from 'ang-jsoneditor';
 
 import { AppComponent } from 'app/app.component';
@@ -30,7 +29,6 @@ import { fakeBackendProvider } from 'app/mock/mock.interceptor';
     BrowserModule,
     AppRoutingModule,
     FontModule,
-    MaterialModule,
     NgJsonEditorModule,
     FormsModule,
     HttpClientModule,
