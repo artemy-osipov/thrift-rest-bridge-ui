@@ -5,7 +5,7 @@ RUN apk add --no-cache \
 
 ARG APP_NAME=thrift-rest-bridge-ui
 
-COPY caddy/Caddyfile /etc/caddy/Caddyfile
+COPY caddy /etc/caddy/
 COPY dist/$APP_NAME /site
 
-CMD envsubst < /site/assets/env.template.js > /site/assets/env.js ; caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+CMD /etc/caddy/init.sh ; caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
