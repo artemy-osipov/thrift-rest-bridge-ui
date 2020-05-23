@@ -16,3 +16,5 @@ docker run --rm -p 80:80 -e API_URL -e BASE_HREF ir2sora/thrift-rest-bridge-ui:0
 ```
 
 App will be accessible on `http://localhost:80/thrift-rest-bridge-ui`
+
+![Image description](docs/screenshot.png)
