@@ -1,27 +1,18 @@
-# ThriftRestBridgeUi
+# Thrift-Rest Bridge UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=artemy-osipov_thrift-rest-bridge-ui&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=artemy-osipov_thrift-rest-bridge-ui)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=artemy-osipov_thrift-rest-bridge-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=artemy-osipov_thrift-rest-bridge-ui)
 
-## Development server
+UI for [REST API](https://github.com/artemy-osipov/thrift-rest-bridge)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Usage
 
-## Code scaffolding
+Run UI via docker
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+export API_URL=http://bridge.server.com # url to bridge rest api
+export BASE_HREF=/thrift-rest-bridge-ui/ # base url
+docker run --rm -p 80:80 -e API_URL -e BASE_HREF ir2sora/thrift-rest-bridge-ui:0.1.0
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+App will be accessible on `http://localhost:80/thrift-rest-bridge-ui`
