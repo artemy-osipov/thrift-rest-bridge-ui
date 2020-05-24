@@ -1,5 +1,6 @@
 # Thrift-Rest Bridge UI
 
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ir2sora/thrift-rest-bridge-ui?sort=semver)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=artemy-osipov_thrift-rest-bridge-ui&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=artemy-osipov_thrift-rest-bridge-ui)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=artemy-osipov_thrift-rest-bridge-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=artemy-osipov_thrift-rest-bridge-ui)
 
