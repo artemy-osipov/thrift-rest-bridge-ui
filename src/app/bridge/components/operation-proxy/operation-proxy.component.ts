@@ -85,7 +85,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
       this.servicesService.proxy(this.opeartionId, value)
         .subscribe(
           data => this.response = JSON.stringify(data, null, 4),
-          _ => this.onError(),
+          ex => this.response = JSON.stringify(ex.error, null, 4),
           () => this.loading = false
         );
     }
