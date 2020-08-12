@@ -6,14 +6,14 @@
     </span>
   </p>
 
-  <div class="menu service-list">
+  <div class="menu service-list" id="qwe" #operations>
     <ng-container *ngFor="let service of (services$ | async)">
       <p class="menu-label">
         {{service.name}}
       </p>
       <ul class="menu-list">
         <li *ngFor="let operation of service.operations">
-          <a (click)="select(service, operation)" [class.is-active]="isSelected(service, operation)">{{operation.name}}</a>
+          <a id="{{service.id}}-{{operation.name}}" (click)="select(service, operation)" [class.is-active]="isSelected(service, operation)">{{operation.name}}</a>
         </li>
       </ul>
     </ng-container>
