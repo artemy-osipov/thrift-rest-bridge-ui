@@ -1,11 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable, combineLatest } from 'rxjs';
+import { startWith, switchMap, debounceTime } from 'rxjs/operators';
 
 import { Service, Operation, OperationId } from 'app/bridge/shared/service.model';
-import { Observable } from 'rxjs';
 import { ServicesQuery } from '../../shared/services.query';
 import { ServicesService } from '../../shared/services.service';
-import { startWith, switchMap, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-service-list',
@@ -16,10 +17,13 @@ export class ServiceListComponent implements OnInit {
   search = new FormControl();
   services$: Observable<Service[]>;
 
-  @Output() selected = new EventEmitter<OperationId>();
-  wasSelected?: OperationId;
+  @Output()
+  selected = new EventEmitter<OperationId>();
+  private selectedId?: OperationId;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private servicesService: ServicesService,
     private servicesQuery: ServicesQuery
   ) {
@@ -33,20 +37,45 @@ export class ServiceListComponent implements OnInit {
 
   ngOnInit() {
     this.servicesService.list().subscribe();
+    combineLatest([this.route.queryParams, this.services$])
+      .subscribe(
+        ([params, services]) => {
+          const { serviceId, opeartionName } = params;
+
+          if (serviceId && opeartionName) {
+            const service = services.find(s => s.id === serviceId);
+            const operation = service && service.operations.find(o => o.name === opeartionName);
+
+            if (service && operation) {
+              this.select(service, operation);
+            }
+          }
+        }
+      );
   }
 
   isSelected(service: Service, operation: Operation): boolean {
-    return this.wasSelected
-      && this.wasSelected.serviceId === service.id
-      && this.wasSelected.opeartionName === operation.name
+    return this.selectedId
+      && this.selectedId.serviceId === service.id
+      && this.selectedId.opeartionName === operation.name
       || false;
   }
 
   select(service: Service, operation: Operation) {
-    this.wasSelected = {
+    this.selectedId = {
       serviceId: service.id,
       opeartionName: operation.name
     };
-    this.selected.emit(this.wasSelected);
+    this.updateUrl();
+    this.selected.emit(this.selectedId);
+  }
+
+  private updateUrl() {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: this.selectedId
+      });
   }
 }
