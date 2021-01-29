@@ -37,14 +37,14 @@ export class ServicesService {
   getTemplate(operationId: OperationId): Observable<string> {
     return this.gateway.getTemplate(
       operationId.serviceId,
-      operationId.opeartionName
+      operationId.operationName
     );
   }
 
   proxy(operationId: OperationId, proxyRequest: ProxyRequest): Observable<Object> {
     return this.gateway.proxy(
       operationId.serviceId,
-      operationId.opeartionName,
+      operationId.operationName,
       proxyRequest.endpoint,
       proxyRequest.body
     );
@@ -55,9 +55,9 @@ export class ServicesService {
 
     cache[operationId.serviceId] = cache[operationId.serviceId] || { operations: {} };
     cache[operationId.serviceId].endpoint = proxyRequest.endpoint;
-    cache[operationId.serviceId].operations[operationId.opeartionName]
-      = cache[operationId.serviceId]?.operations?.[operationId.opeartionName] || {};
-    cache[operationId.serviceId].operations[operationId.opeartionName].body = proxyRequest.body;
+    cache[operationId.serviceId].operations[operationId.operationName]
+      = cache[operationId.serviceId]?.operations?.[operationId.operationName] || {};
+    cache[operationId.serviceId].operations[operationId.operationName].body = proxyRequest.body;
 
     localStorage.setItem(SERVICE_PROXY_CACHE_NAME, JSON.stringify(cache));
   }
@@ -65,7 +65,7 @@ export class ServicesService {
   getProxyRequest(operationId: OperationId): Observable<ProxyRequest> {
     const cache: ServiceProxyCache = JSON.parse(localStorage.getItem(SERVICE_PROXY_CACHE_NAME) || '{}');
     const endpoint = cache[operationId.serviceId]?.endpoint || '';
-    const cachedBody = cache[operationId.serviceId]?.operations?.[operationId.opeartionName]?.body;
+    const cachedBody = cache[operationId.serviceId]?.operations?.[operationId.operationName]?.body;
     const rxBody = cachedBody ? of(cachedBody) : this.getTemplate(operationId);
 
     return rxBody.pipe(

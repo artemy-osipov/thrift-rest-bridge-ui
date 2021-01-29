@@ -10,7 +10,7 @@ export interface Operation {
 
 export interface OperationId {
   serviceId: string;
-  opeartionName: string;
+  operationName: string;
 }
 
 export interface ProxyRequest {

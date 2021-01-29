@@ -40,11 +40,11 @@ export class ServiceListComponent implements OnInit {
     combineLatest([this.route.queryParams, this.services$])
       .subscribe(
         ([params, services]) => {
-          const { serviceId, opeartionName } = params;
+          const { serviceId, operationName } = params;
 
-          if (serviceId && opeartionName) {
+          if (serviceId && operationName) {
             const service = services.find(s => s.id === serviceId);
-            const operation = service && service.operations.find(o => o.name === opeartionName);
+            const operation = service && service.operations.find(o => o.name === operationName);
 
             if (service && operation) {
               this.select(service, operation);
@@ -57,14 +57,14 @@ export class ServiceListComponent implements OnInit {
   isSelected(service: Service, operation: Operation): boolean {
     return this.selectedId
       && this.selectedId.serviceId === service.id
-      && this.selectedId.opeartionName === operation.name
+      && this.selectedId.operationName === operation.name
       || false;
   }
 
   select(service: Service, operation: Operation) {
     this.selectedId = {
       serviceId: service.id,
-      opeartionName: operation.name
+      operationName: operation.name
     };
     this.updateUrl();
     this.selected.emit(this.selectedId);

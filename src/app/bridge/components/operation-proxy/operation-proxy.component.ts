@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges, OnInit, OnChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonEditorOptions } from 'ang-jsoneditor';
+import { ClipboardService } from 'app/bridge/shared/clipboard.service';
 
 import { OperationId, ProxyRequest } from 'app/bridge/shared/service.model';
 import { ServicesService } from 'app/bridge/shared/services.service';
@@ -13,14 +14,16 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class OperationProxyComponent implements OnInit, OnChanges {
 
-  @Input() opeartionId!: OperationId;
+  @Input() operationId!: OperationId;
 
   form: FormGroup;
   editorOptions = new JsonEditorOptions();
   response?: string;
   loading = false;
+  copiedUrl = false;
 
   constructor(
+    private clipboard: ClipboardService,
     private servicesService: ServicesService
   ) {
     this.editorOptions.mode = 'code';
@@ -37,19 +40,19 @@ export class OperationProxyComponent implements OnInit, OnChanges {
       debounceTime(1000)
     ).subscribe(
       (data: ProxyRequest) =>
-        this.servicesService.persistProxyRequest(this.opeartionId, data)
+        this.servicesService.persistProxyRequest(this.operationId, data)
     );
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.opeartionId && changes.opeartionId.currentValue) {
+    if (changes.operationId && changes.operationId.currentValue) {
       this.clearForm();
       this.fillForm();
     }
   }
 
   fillForm() {
-    this.servicesService.getProxyRequest(this.opeartionId)
+    this.servicesService.getProxyRequest(this.operationId)
       .subscribe(
         data => {
           this.f['endpoint'].setValue(data.endpoint);
@@ -60,7 +63,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   }
 
   resetForm() {
-    this.servicesService.getTemplate(this.opeartionId)
+    this.servicesService.getTemplate(this.operationId)
       .subscribe(
         template => this.f['body'].setValue(template),
         _ => this.onError()
@@ -82,13 +85,20 @@ export class OperationProxyComponent implements OnInit, OnChanges {
       this.loading = true;
       this.response = '';
       const value = this.form.value as ProxyRequest;
-      this.servicesService.proxy(this.opeartionId, value)
+      this.servicesService.proxy(this.operationId, value)
         .subscribe(
           data => this.response = JSON.stringify(data, null, 4),
           ex => this.response = JSON.stringify(ex.error, null, 4),
           () => this.loading = false
         );
     }
+  }
+
+  copyPersistentUrl() {
+    const formParam = btoa(JSON.stringify(this.form.value));
+    this.clipboard.copyText(window.location.href + '?form=' + formParam);
+    this.copiedUrl = true;
+    setTimeout(() => (this.copiedUrl = false), 300);
   }
 
   onError() {

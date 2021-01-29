@@ -6,13 +6,18 @@
       <button type="submit" class="button is-info">Send</button>
       <div class="dropdown is-right is-hoverable">
         <div class="dropdown-trigger">
-          <button class="button is-info">
+          <button type="button" class="button is-info">
             <span class="icon is-small">
               <fa-icon icon="angle-down"></fa-icon>
             </span>
           </button>
         </div>
         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+          <div class="dropdown-content" [class.has-background-success]="this.copiedUrl">
+            <a class="dropdown-item" (click)="copyPersistentUrl()">
+              Copy persistent url
+            </a>
+          </div>
           <div class="dropdown-content">
             <a class="dropdown-item" (click)="resetForm()">
               Reset body
