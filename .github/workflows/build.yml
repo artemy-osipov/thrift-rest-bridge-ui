@@ -20,5 +20,5 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
       - run: |
           yarn install --immutable
-          yarn run build
+          yarn run build --prod
           yarn run lint
