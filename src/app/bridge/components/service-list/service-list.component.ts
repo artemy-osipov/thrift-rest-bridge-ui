@@ -73,12 +73,14 @@ export class ServiceListComponent implements OnInit {
 
   private scrollToOperation(operationId: OperationId) {
     this.operationElements.changes.pipe(first()).subscribe(() => {
-      let element = this.operationElements.find(
+      const element = this.operationElements.find(
         (el) =>
-          el.nativeElement.id ==
+          el.nativeElement.id ===
           `${operationId.serviceId}-${operationId.operationName}`
       )?.nativeElement;
-      element && this.scrollToMiddle(element);
+      if (element) {
+        this.scrollToMiddle(element);
+      }
     });
   }
 
@@ -86,7 +88,7 @@ export class ServiceListComponent implements OnInit {
     try {
       element.scrollIntoView({ block: 'center' });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
