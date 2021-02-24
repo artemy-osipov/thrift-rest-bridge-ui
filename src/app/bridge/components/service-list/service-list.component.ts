@@ -1,8 +1,16 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChildren,
+  QueryList,
+  ElementRef,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, combineLatest } from 'rxjs';
-import { startWith, switchMap, debounceTime } from 'rxjs/operators';
+import { startWith, switchMap, debounceTime, first } from 'rxjs/operators';
 
 import {
   Service,
@@ -25,6 +33,9 @@ export class ServiceListComponent implements OnInit {
   selected = new EventEmitter<OperationId>();
   private selectedId?: OperationId;
 
+  @ViewChildren('operations')
+  operationElements!: QueryList<ElementRef>;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -40,6 +51,7 @@ export class ServiceListComponent implements OnInit {
 
   ngOnInit() {
     this.servicesService.list().subscribe();
+    let scrolled = false;
     combineLatest([this.route.queryParams, this.services$]).subscribe(
       ([params, services]) => {
         const { serviceId, operationName } = params;
@@ -50,9 +62,32 @@ export class ServiceListComponent implements OnInit {
         );
         if (this.selectedId) {
           this.selected.emit(this.selectedId);
+          if (!scrolled) {
+            this.scrollToOperation(this.selectedId);
+            scrolled = true;
+          }
         }
       }
     );
+  }
+
+  private scrollToOperation(operationId: OperationId) {
+    this.operationElements.changes.pipe(first()).subscribe(() => {
+      let element = this.operationElements.find(
+        (el) =>
+          el.nativeElement.id ==
+          `${operationId.serviceId}-${operationId.operationName}`
+      )?.nativeElement;
+      element && this.scrollToMiddle(element);
+    });
+  }
+
+  private scrollToMiddle(element: HTMLElement) {
+    try {
+      element.scrollIntoView({ block: 'center' });
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   private resolveOperation(

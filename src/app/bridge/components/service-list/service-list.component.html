@@ -1,19 +1,32 @@
 <form class="service-form">
   <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Search" [formControl]="search">
+    <input
+      class="input"
+      type="text"
+      placeholder="Search"
+      [formControl]="search"
+    />
     <span class="icon is-left">
       <fa-icon icon="search"></fa-icon>
     </span>
   </p>
 
-  <div class="menu service-list" id="qwe" #operations>
-    <ng-container *ngFor="let service of (services$ | async)">
+  <div class="menu service-list">
+    <ng-container *ngFor="let service of services$ | async">
       <p class="menu-label">
-        {{service.name}}
+        {{ service.name }}
       </p>
       <ul class="menu-list">
-        <li *ngFor="let operation of service.operations">
-          <a id="{{service.id}}-{{operation.name}}" (click)="select(service, operation)" [class.is-active]="isSelected(service, operation)">{{operation.name}}</a>
+        <li
+          #operations
+          *ngFor="let operation of service.operations"
+          id="{{ service.id }}-{{ operation.name }}"
+        >
+          <a
+            (click)="select(service, operation)"
+            [class.is-active]="isSelected(service, operation)"
+            >{{ operation.name }}</a
+          >
         </li>
       </ul>
     </ng-container>
