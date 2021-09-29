@@ -25,7 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "ang-jsoneditor": "^1.10.5",
     "bulma": "^0.9.2",
-    "jsoneditor": "^8.6.8",
+    "jsoneditor": "^9.5.6",
     "rxjs": "~6.6.3",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
