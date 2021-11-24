@@ -1,6 +1,6 @@
 <form class="proxy-service" [formGroup]="form" (ngSubmit)="proxy()">
   <div class="action-row">
-    <input type="text" placeholder="Endpoint" class="input" [class.is-danger]="f.endpoint.invalid"
+    <input type="text" placeholder="Endpoint" class="input" [class.is-danger]="f['endpoint'].invalid"
       formControlName="endpoint">
     <div class="split-button">
       <button type="submit" class="button is-info">Send</button>

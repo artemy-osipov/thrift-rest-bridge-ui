@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class ServicesQuery extends QueryEntity<ServicesState, Service> {
 
-  constructor(protected store: ServicesStore) {
-    super(store);
+  constructor(protected sStore: ServicesStore) {
+    super(sStore);
   }
 
   filtered(term: string): Observable<Service[]> {

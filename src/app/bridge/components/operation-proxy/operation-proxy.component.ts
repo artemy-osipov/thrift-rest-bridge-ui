@@ -52,7 +52,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.operationId && changes.operationId.currentValue) {
+    if (changes['operationId'] && changes['operationId'].currentValue) {
       this.clearForm();
       this.fillForm();
     }
@@ -60,7 +60,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
 
   fillForm() {
     concat(
-      of(this.route.snapshot.queryParams.form).pipe(
+      of(this.route.snapshot.queryParams['form']).pipe(
         filter((param) => param !== undefined),
         map((formEncoded) => this.parseForm(formEncoded))
       ),
