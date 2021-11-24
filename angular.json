@@ -102,9 +102,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "thrift-rest-bridge-ui"
+  "defaultProject": "thrift-rest-bridge-ui",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
