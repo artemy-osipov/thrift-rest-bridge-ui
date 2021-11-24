@@ -61,8 +61,8 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   fillForm() {
     concat(
       of(this.route.snapshot.queryParams.form).pipe(
-        filter(param => param !== undefined),
-        map(formEncoded => this.parseForm(formEncoded))
+        filter((param) => param !== undefined),
+        map((formEncoded) => this.parseForm(formEncoded))
       ),
       this.servicesService.getProxyRequest(this.operationId)
     )
@@ -77,7 +77,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   }
 
   private parseForm(queryParam: string): ProxyRequest {
-    return JSON.parse(atob(queryParam));
+    return this.deserialize(queryParam);
   }
 
   resetForm() {
@@ -111,7 +111,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   }
 
   copyPersistentUrl() {
-    const formParam = btoa(JSON.stringify(this.form.value));
+    const formParam = this.serialize(this.form.value);
     this.clipboard.copyText(window.location.href + '&form=' + formParam);
     this.copiedUrl = true;
     setTimeout(() => (this.copiedUrl = false), 300);
@@ -122,5 +122,13 @@ export class OperationProxyComponent implements OnInit, OnChanges {
     if (error) {
       console.log('error: ' + error);
     }
+  }
+
+  private serialize(obj: Object): string {
+    return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
+  }
+
+  private deserialize(str: string): any {
+    return JSON.parse(decodeURIComponent(escape(window.atob(str))));
   }
 }
