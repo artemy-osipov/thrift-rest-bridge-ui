@@ -12,6 +12,7 @@ import { ClipboardService } from 'app/bridge/shared/clipboard.service';
 
 import { OperationId, ProxyRequest } from 'app/bridge/shared/service.model';
 import { ServicesService } from 'app/bridge/shared/services.service';
+import { fromBase64, toBase64 } from 'app/utils/string.utils';
 import { concat, of } from 'rxjs';
 import { debounceTime, filter, first, map } from 'rxjs/operators';
 
@@ -77,7 +78,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   }
 
   private parseForm(queryParam: string): ProxyRequest {
-    return this.deserialize(queryParam);
+    return JSON.parse(fromBase64(queryParam));
   }
 
   resetForm() {
@@ -111,7 +112,7 @@ export class OperationProxyComponent implements OnInit, OnChanges {
   }
 
   copyPersistentUrl() {
-    const formParam = this.serialize(this.form.value);
+    const formParam = toBase64(JSON.stringify(this.form.value));
     this.clipboard.copyText(window.location.href + '&form=' + formParam);
     this.copiedUrl = true;
     setTimeout(() => (this.copiedUrl = false), 300);
@@ -122,13 +123,5 @@ export class OperationProxyComponent implements OnInit, OnChanges {
     if (error) {
       console.log('error: ' + error);
     }
-  }
-
-  private serialize(obj: Object): string {
-    return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
-  }
-
-  private deserialize(str: string): any {
-    return JSON.parse(decodeURIComponent(escape(window.atob(str))));
   }
 }
