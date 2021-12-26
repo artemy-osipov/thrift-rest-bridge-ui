@@ -3,22 +3,20 @@ name: build
 on:
   push:
     branches:
-    - master
+      - master
   pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-    - uses: actions/cache@v2
-      with:
-        path: .yarn/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-    - run: |
-        yarn install --immutable
-        yarn run build --configuration production
-        yarn run lint
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - run: |
+          yarn install --immutable
+          yarn run lint
+          yarn run check
+          yarn run build

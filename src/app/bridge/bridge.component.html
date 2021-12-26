@@ -1,8 +1,0 @@
-<section>
-  <nav>
-    <app-service-list (selected)="onSelected($event)"></app-service-list>
-  </nav>
-  <main>
-    <app-operation-proxy [operationId]="currentOperationId" *ngIf="currentOperationId"></app-operation-proxy>
-  </main>
-</section>

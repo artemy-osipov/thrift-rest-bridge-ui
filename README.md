@@ -12,7 +12,7 @@ Run UI via docker
 
 ```bash
 export API_URL=http://bridge.server.com # url to bridge rest api
-export BASE_HREF=/thrift-rest-bridge-ui/ # base url
+export BASE_HREF=/thrift-rest-bridge-ui # base url
 docker run --rm -p 80:80 -e API_URL -e BASE_HREF ir2sora/thrift-rest-bridge-ui:0.1.0
 ```
 

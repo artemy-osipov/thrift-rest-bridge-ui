@@ -1,11 +1,8 @@
-FROM caddy:2.3.0-alpine
-
-RUN apk add --no-cache \
-  gettext
-
-ARG APP_NAME=thrift-rest-bridge-ui
+FROM caddy:2.4.6-alpine
 
 COPY caddy /etc/caddy/
-COPY dist/$APP_NAME /site
+COPY build /site
+# TODO: exclude from production build
+RUN rm -f /site/mockServiceWorker.js
 
-CMD /etc/caddy/init.sh ; caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+CMD /etc/caddy/start.sh
