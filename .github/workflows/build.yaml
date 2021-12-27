@@ -15,8 +15,15 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
-      - run: |
-          yarn install --immutable
-          yarn run lint
-          yarn run check
-          yarn run build
+      - run: yarn install --immutable
+      - run: yarn run lint
+      - run: yarn run check
+      - run: yarn run build
+      - uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ github.repository_owner }}
+            -Dsonar.projectKey=${{ github.event.repository.name }}
