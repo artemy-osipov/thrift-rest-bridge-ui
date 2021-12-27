@@ -14,7 +14,7 @@ export async function getTemplate(operationId: OperationId): Promise<object> {
   const resp = await fetch(
     `${API_URL}/services/${operationId.serviceId}/operations/${operationId.operationName}/template`
   )
-  return await resp.json()
+  return resp.json()
 }
 
 export async function proxyOperation(
@@ -35,5 +35,5 @@ export async function proxyOperation(
       }),
     }
   )
-  return await resp.json()
+  return resp.json()
 }

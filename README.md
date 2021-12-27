@@ -1,7 +1,7 @@
 # Thrift-Rest Bridge UI
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=artemy-osipov_thrift-rest-bridge-ui&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=artemy-osipov_thrift-rest-bridge-ui)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=artemy-osipov_thrift-rest-bridge-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=artemy-osipov_thrift-rest-bridge-ui)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=thrift-rest-bridge-ui&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=thrift-rest-bridge-ui)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=thrift-rest-bridge-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=thrift-rest-bridge-ui)
 
 UI for [REST API](https://github.com/artemy-osipov/thrift-rest-bridge)
 

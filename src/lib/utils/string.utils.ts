@@ -57,8 +57,8 @@ function fromBinary(s: string): string {
   }
   const charCodes = new Uint16Array(bytes.buffer)
   let result = ''
-  for (let i = 0; i < charCodes.length; i++) {
-    result += String.fromCharCode(charCodes[i])
+  for (const cc of charCodes) {
+    result += String.fromCharCode(cc)
   }
   return result
 }
