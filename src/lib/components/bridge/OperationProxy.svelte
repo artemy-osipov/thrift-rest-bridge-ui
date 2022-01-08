@@ -58,7 +58,7 @@
   }
 
   function fetchRequestTemplate() {
-    const formParam = $page.query.get('form')
+    const formParam = $page.url.searchParams.get('form')
     if (formParam) {
       const request: ProxyRequest = fromBase64(formParam)
       endpoint = request.endpoint

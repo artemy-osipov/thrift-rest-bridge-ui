@@ -15,18 +15,18 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.0-next.23",
-    "@sveltejs/kit": "^1.0.0-next.204",
+    "@sveltejs/adapter-static": "^1.0.0-next.24",
+    "@sveltejs/kit": "^1.0.0-next.218",
     "@types/lodash-es": "^4.17.5",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
-    "eslint": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte3": "^3.2.1",
+    "eslint-plugin-svelte3": "^3.3.0",
     "msw": "^0.36.3",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.1",
-    "svelte": "^3.44.3",
+    "svelte": "^3.45.0",
     "svelte-check": "^2.2.11",
     "svelte-preprocess": "^4.10.1",
     "tslib": "^2.3.1",
@@ -36,7 +36,7 @@
     "bulma": "^0.9.3",
     "lodash-es": "^4.17.21",
     "svelte-icons": "^2.1.0",
-    "svelte-jsoneditor": "^0.3.10"
+    "svelte-jsoneditor": "^0.3.14"
   },
   "msw": {
     "workerDirectory": "static"

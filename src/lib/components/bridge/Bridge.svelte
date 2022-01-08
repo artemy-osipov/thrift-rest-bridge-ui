@@ -10,7 +10,7 @@
 
   let currentOperationId: Readable<OperationId | null>
   $: currentOperationId = servicesStore.exists(
-    parseOperationIdFromQuery($page.query)
+    parseOperationIdFromQuery($page.url.searchParams)
   )
 
   function parseOperationIdFromQuery(

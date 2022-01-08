@@ -16,7 +16,7 @@
 
 <section>
   <header>
-    <nav class="navbar is-dark" role="navigation">
+    <nav class="navbar is-dark">
       <div class="navbar-brand">
         <div class="navbar-item">
           <img src="bridge.svg" width="30" height="30" alt="" />
