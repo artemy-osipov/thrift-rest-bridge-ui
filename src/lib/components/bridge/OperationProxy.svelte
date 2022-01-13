@@ -21,14 +21,12 @@
   let copiedUrl = false
 
   let endpoint: string
-  let bodyContent: JsonContent = { text: '{}' }
-
-  $: body = tryParseJson(bodyContent.text)
-
+  let bodyContent: JsonContent | null
   let response: Promise<object> | null = null
 
   $: operationId, fetchRequestTemplate()
-  $: operationId, endpoint, body, persistProxyRequest()
+  $: body = tryParseJson(bodyContent?.text)
+  $: endpoint, body, persistProxyRequest()
 
   let persistProxyRequest = debounce(() => {
     body &&
@@ -54,10 +52,12 @@
   }
 
   function resetForm() {
+    bodyContent = null
     fetchOriginalRequestTemplate()
   }
 
   function fetchRequestTemplate() {
+    bodyContent = null
     const formParam = $page.url.searchParams.get('form')
     if (formParam) {
       const request: ProxyRequest = fromBase64(formParam)
@@ -65,8 +65,8 @@
       updateBody(request.body)
     } else {
       const proxyRequest = storage.getProxyRequest(operationId)
-      if (proxyRequest) {
-        endpoint = proxyRequest.endpoint
+      endpoint = proxyRequest.endpoint
+      if (proxyRequest.body) {
         updateBody(proxyRequest.body)
       } else {
         fetchOriginalRequestTemplate()

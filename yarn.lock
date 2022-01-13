@@ -2501,13 +2501,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:^2.5.1":
-  version: 2.5.1
-  resolution: "prettier-plugin-svelte@npm:2.5.1"
+"prettier-plugin-svelte@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "prettier-plugin-svelte@npm:2.6.0"
   peerDependencies:
     prettier: ^1.16.4 || ^2.0.0
     svelte: ^3.2.0
-  checksum: 433c0008749043a0ef16ecc27371db9cdd616b700d071e8f26fc933d23e466b2703b129643fabe1072151cf84dfb6ccad39d0baaa9f93f522d3e6bebb5a06d9e
+  checksum: 1ee680cba9c9918a0d831e2161b774ac588bcd8ba8e87a27b33f0382873d2d8f4397bbf24968f777b48c281c97eba573c64087a8ed28eaaf17d083fa9fe6474d
   languageName: node
   linkType: hard
 
@@ -2972,9 +2972,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:^2.2.12":
-  version: 2.2.12
-  resolution: "svelte-check@npm:2.2.12"
+"svelte-check@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "svelte-check@npm:2.3.0"
   dependencies:
     chokidar: ^3.4.1
     fast-glob: ^3.2.7
@@ -2989,7 +2989,7 @@ __metadata:
     svelte: ^3.24.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: b23db69491eb5c7e7e4a09b55d75ee2ca2d768011edbfe0804f1e911b9eef20607711d034be28c07d3189733f17515bb3f32d86a11df904710fdf9e26005b0f3
+  checksum: 81e957b0b32c4f07e0787e36a89756035f52aa2a04b6e18e579ae9abadbbd6e8c1ac601bc916b0c1361288860e36dfd59796df89e7750e96cddfa4ee7f8e331c
   languageName: node
   linkType: hard
 
@@ -3171,9 +3171,9 @@ __metadata:
     lodash-es: ^4.17.21
     msw: ^0.36.4
     prettier: ^2.5.1
-    prettier-plugin-svelte: ^2.5.1
+    prettier-plugin-svelte: ^2.6.0
     svelte: ^3.46.1
-    svelte-check: ^2.2.12
+    svelte-check: ^2.3.0
     svelte-icons: ^2.1.0
     svelte-jsoneditor: ^0.3.15
     svelte-preprocess: ^4.10.1

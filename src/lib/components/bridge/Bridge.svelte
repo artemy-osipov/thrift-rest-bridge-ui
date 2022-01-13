@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Readable } from 'svelte/store'
-  import { browser } from '$app/env'
   import { page } from '$app/stores'
   import type { OperationId } from '$lib/data/service.model'
   import { servicesStore } from '$lib/data/services.store'
@@ -28,9 +27,7 @@
   }
 
   function onSelectedOperation(event: CustomEvent<OperationId>) {
-    if (browser) {
-      gotoWithQueryParams({ ...event.detail })
-    }
+    gotoWithQueryParams({ ...event.detail })
   }
 </script>
 

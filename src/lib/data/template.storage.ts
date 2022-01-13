@@ -17,6 +17,11 @@ type OperationCache = {
   body?: object
 }
 
+type ProxyRequestCache = {
+  endpoint: string
+  body?: object
+}
+
 export function persistProxyRequest(
   operationId: OperationId,
   proxyRequest: ProxyRequest
@@ -36,7 +41,7 @@ export function persistProxyRequest(
   localStorage.setItem(SERVICE_PROXY_CACHE_NAME, JSON.stringify(cache))
 }
 
-export function getProxyRequest(operationId: OperationId): ProxyRequest | null {
+export function getProxyRequest(operationId: OperationId): ProxyRequestCache {
   const cache: BridgeCache = JSON.parse(
     localStorage.getItem(SERVICE_PROXY_CACHE_NAME) || '{}'
   )
@@ -44,9 +49,5 @@ export function getProxyRequest(operationId: OperationId): ProxyRequest | null {
   const body =
     cache[operationId.serviceId]?.operations?.[operationId.operationName]?.body
 
-  if (body) {
-    return { endpoint, body }
-  } else {
-    return null
-  }
+  return { endpoint, body }
 }

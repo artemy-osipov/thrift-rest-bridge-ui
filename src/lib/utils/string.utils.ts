@@ -1,6 +1,6 @@
-export function tryParseJson(json: string): object | null {
+export function tryParseJson(json?: string): object | null {
   try {
-    return JSON.parse(json)
+    return json && JSON.parse(json)
   } catch {
     return null
   }
