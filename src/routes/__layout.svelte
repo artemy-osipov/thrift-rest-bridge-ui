@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { USE_MOCKS } from '$lib/config/environment'
+  import Header from '$lib/components/layout/Header.svelte'
 
   let initializated = false
 
@@ -15,21 +16,7 @@
 </script>
 
 <section>
-  <header>
-    <nav class="navbar is-dark">
-      <div class="navbar-brand">
-        <div class="navbar-item">
-          <img src="bridge.svg" width="30" height="30" alt="" />
-        </div>
-      </div>
-
-      <div class="navbar-start">
-        <div class="navbar-item">
-          <span>Thrift Bridge</span>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <Header />
   <main>
     {#if initializated}
       <slot />
