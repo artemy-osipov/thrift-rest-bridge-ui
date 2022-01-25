@@ -35,5 +35,10 @@ export async function proxyOperation(
       }),
     }
   )
-  return resp.json()
+  const text = await resp.text()
+  if (text === '') {
+    return {}
+  } else {
+    return JSON.parse(text)
+  }
 }
