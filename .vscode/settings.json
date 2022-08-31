@@ -1,4 +1,7 @@
 {
   "editor.tabSize": 2,
-  "cSpell.words": ["jsoneditor"]
+  "cSpell.words": ["jsoneditor"],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/admin/Work/GITHUB/thrift-rest-bridge-ui/.github/workflows/build.yaml"
+  }
 }

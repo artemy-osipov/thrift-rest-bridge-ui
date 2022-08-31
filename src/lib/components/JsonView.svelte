@@ -12,5 +12,11 @@
 </script>
 
 {#if content}
-  <JSONEditor bind:content mode={'code'} mainMenuBar={false} {readOnly} />
+  <JSONEditor
+    bind:content
+    mode={'text'}
+    mainMenuBar={false}
+    statusBar={false}
+    {readOnly}
+  />
 {/if}

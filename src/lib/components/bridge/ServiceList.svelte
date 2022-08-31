@@ -67,7 +67,7 @@
           <li id="o_{service.id}-{operation.name}">
             <!-- svelte-ignore a11y-missing-attribute -->
             <a
-              on:click={select(service, operation)}
+              on:click|preventDefault={select(service, operation)}
               class:is-active={isSelected(service, operation)}
               >{operation.name}</a
             >
