@@ -13,6 +13,7 @@
     <div class="navbar-end">
       <a
         class="navbar-item"
+        rel="noreferrer"
         href="https://github.com/artemy-osipov/thrift-rest-bridge-ui"
         target="_blank"
       >

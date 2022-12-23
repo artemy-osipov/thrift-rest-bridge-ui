@@ -66,6 +66,7 @@
         {#each service.operations as operation (operation.name)}
           <li id="o_{service.id}-{operation.name}">
             <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <a
               on:click|preventDefault={select(service, operation)}
               class:is-active={isSelected(service, operation)}

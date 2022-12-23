@@ -25,7 +25,7 @@ export function gotoWithQueryParams(params: QueryParams) {
     queryParams.set(k, v)
   })
   goto(`?${queryParams.toString()}`, {
-    keepfocus: true,
-    noscroll: true,
+    keepFocus: true,
+    noScroll: true,
   })
 }

@@ -113,12 +113,12 @@
             class:has-background-success={copiedUrl}
           >
             <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <a class="dropdown-item" on:click={copyPersistentUrl}>
               Copy persistent url
             </a>
-          </div>
-          <div class="dropdown-content">
             <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <a class="dropdown-item" on:click={resetForm}> Reset body </a>
           </div>
         </div>
