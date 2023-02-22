@@ -9,10 +9,9 @@ escape_sed() {
 sed -i "s/\(window\.env\['API_URL'\]=\)undefined/\1'"$(escape_sed $API_URL)"'/" /site/init.js
 
 # change base root. hacky - should be better way
+BASE_URL="${BASE_HREF:-/}"
+SITE_FILE=$(find /site -type f)
 sed -i 's/<base href="\/" \/>/<base href="'$(escape_sed $BASE_HREF)'\/">/' /site/index.html
-sed -i 's/\/_app\//'$(escape_sed $BASE_HREF)'\/_app\//' /site/index.html
-sed -i 's/"base":""/"base":"'$(escape_sed $BASE_HREF)'"/' /site/index.html
-JS_START_FILE=$(find /site -type f -name "start*.js")
-sed -i 's/\/_app\//'$(escape_sed $BASE_HREF)'\/_app\//' $JS_START_FILE
+sed -i 's/\/__BASE_URL/'$(escape_sed $BASE_URL)'/' $SITE_FILE
 
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
