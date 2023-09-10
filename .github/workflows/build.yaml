@@ -10,14 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'yarn'
       - run: yarn install --immutable
-      - run: yarn run lint
-      - run: yarn run check
+      - run: yarn run checkAll
       - run: yarn run build
       - uses: sonarsource/sonarcloud-github-action@master
         env:

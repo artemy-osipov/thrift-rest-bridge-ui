@@ -70,7 +70,8 @@
             <a
               on:click|preventDefault={select(service, operation)}
               class:is-active={isSelected(service, operation)}
-              >{operation.name}</a
+              role="menuitem"
+              tabindex="0">{operation.name}</a
             >
           </li>
         {/each}

@@ -114,12 +114,24 @@
           >
             <!-- svelte-ignore a11y-missing-attribute -->
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <a class="dropdown-item" on:click={copyPersistentUrl}>
+            <a
+              class="dropdown-item"
+              on:click={copyPersistentUrl}
+              role="button"
+              tabindex="0"
+            >
               Copy persistent url
             </a>
             <!-- svelte-ignore a11y-missing-attribute -->
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <a class="dropdown-item" on:click={resetForm}> Reset body </a>
+            <a
+              class="dropdown-item"
+              on:click={resetForm}
+              role="button"
+              tabindex="0"
+            >
+              Reset body
+            </a>
           </div>
         </div>
       </div>
