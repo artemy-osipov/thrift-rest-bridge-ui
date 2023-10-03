@@ -2,15 +2,16 @@
   import { debounce } from 'lodash-es'
   import FaAngleDown from 'svelte-icons/fa/FaAngleDown.svelte'
   import { getTemplate, proxyOperation } from '$lib/api/bridge.api'
+  import { createShortURL } from '$lib/api/short.api'
   import type { JsonContent } from '$lib/components/JsonView.svelte'
   import JsonView from '$lib/components/JsonView.svelte'
   import LazyElement from '$lib/components/LazyElement.svelte'
   import type { OperationId, ProxyRequest } from '$lib/data/service.model'
   import {
     copyToClipboard,
-    fromBase64,
+    decode,
+    encode,
     prettyJson,
-    toBase64,
     tryParseJson,
   } from '$lib/utils/string.utils'
   import { urlWithQueryParams } from '$lib/utils/url.utils'
@@ -45,7 +46,17 @@
   function copyPersistentUrl() {
     copiedUrl = true
     const request: ProxyRequest = { endpoint, body: body || {} }
-    const copyText = urlWithQueryParams({ form: toBase64(request) })
+    const copyText = urlWithQueryParams({ form: encode(request) })
+    copyToClipboard(copyText).then(() =>
+      setTimeout(() => (copiedUrl = false), 300)
+    )
+  }
+
+  async function copyShortPersistentUrl() {
+    copiedUrl = true
+    const request: ProxyRequest = { endpoint, body: body || {} }
+    const url = urlWithQueryParams({ form: encode(request) })
+    const copyText = await createShortURL(new URL(url))
     copyToClipboard(copyText).then(() =>
       setTimeout(() => (copiedUrl = false), 300)
     )
@@ -60,7 +71,7 @@
     bodyContent = null
     const formParam = $page.url.searchParams.get('form')
     if (formParam) {
-      const request: ProxyRequest = fromBase64(formParam)
+      const request: ProxyRequest = decode(formParam)
       endpoint = request.endpoint
       updateBody(request.body)
     } else {
@@ -121,6 +132,16 @@
               tabindex="0"
             >
               Copy persistent url
+            </a>
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <a
+              class="dropdown-item"
+              on:click={copyShortPersistentUrl}
+              role="button"
+              tabindex="0"
+            >
+              Copy short url
             </a>
             <!-- svelte-ignore a11y-missing-attribute -->
             <!-- svelte-ignore a11y-click-events-have-key-events -->

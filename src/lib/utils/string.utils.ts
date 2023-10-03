@@ -39,38 +39,12 @@ export function copyToClipboard(text: string): Promise<void> {
   }
 }
 
-export function toBase64(obj: object): string {
+export function encode(obj: object): string {
   const json = JSON.stringify(obj)
-  return window.btoa(toBinary(json))
+  return window.encodeURIComponent(json)
 }
 
-export function fromBase64<T>(s: string): T {
-  const json = fromBinary(window.atob(s))
+export function decode<T>(s: string): T {
+  const json = window.decodeURIComponent(s)
   return JSON.parse(json)
-}
-
-function toBinary(s: string): string {
-  const codeUnits = new Uint16Array(s.length)
-  for (let i = 0; i < codeUnits.length; i++) {
-    codeUnits[i] = s.charCodeAt(i)
-  }
-  const charCodes = new Uint8Array(codeUnits.buffer)
-  let result = ''
-  for (let i = 0; i < charCodes.byteLength; i++) {
-    result += String.fromCharCode(charCodes[i])
-  }
-  return result
-}
-
-function fromBinary(s: string): string {
-  const bytes = new Uint8Array(s.length)
-  for (let i = 0; i < bytes.length; i++) {
-    bytes[i] = s.charCodeAt(i)
-  }
-  const charCodes = new Uint16Array(bytes.buffer)
-  let result = ''
-  for (const cc of charCodes) {
-    result += String.fromCharCode(cc)
-  }
-  return result
 }

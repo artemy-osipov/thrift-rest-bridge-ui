@@ -6,7 +6,7 @@ escape_sed() {
 }
 
 # apply envs
-sed -i "s/\(window\.env\['API_URL'\]=\)undefined/\1'"$(escape_sed $API_URL)"'/" /site/init.js
+sed -i "s/\(window\.env\['API_URL'\]\s*=\s*\)undefined/\1'"$(escape_sed $API_URL)"'/" /site/init.js
 
 # change base root. hacky - should be better way
 BASE_URL="${BASE_HREF:-/}"
