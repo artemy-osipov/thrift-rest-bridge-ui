@@ -59,7 +59,12 @@
 
   <div class="menu service-list" bind:this={serviceListDiv}>
     {#each $filteredServices as service (service.id)}
-      <p class="menu-label">
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <p
+        class="menu-label"
+        on:click|preventDefault={() => search=service.name}
+      >
         {service.name}
       </p>
       <ul class="menu-list">
@@ -96,5 +101,6 @@
   .service-list .menu-label {
     text-transform: none;
     font-size: 1em;
+    cursor: pointer;
   }
 </style>
