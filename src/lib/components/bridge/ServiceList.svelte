@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher, tick } from 'svelte'
+  import { createEventDispatcher, onMount, tick } from 'svelte'
   import FaSearch from 'svelte-icons/fa/FaSearch.svelte'
 
   import type { Operation, OperationId, Service } from '$lib/data/service.model'
@@ -17,11 +17,13 @@
   let filteredServices: Readable<Service[]>
   $: filteredServices = servicesStore.filtered(search)
 
-  servicesStore.fetch().then(async () => {
-    if (selected) {
-      await tick()
-      scrollTo(selected)
-    }
+  onMount(() => {
+    servicesStore.fetch().then(async () => {
+      if (selected) {
+        await tick()
+        scrollTo(selected)
+      }
+    })
   })
 
   function scrollTo(operationId: OperationId) {

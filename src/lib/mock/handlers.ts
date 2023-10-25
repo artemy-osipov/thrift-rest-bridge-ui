@@ -1,30 +1,32 @@
-import { rest } from 'msw'
-import { response, services, template } from './data'
+import { delay, http, HttpResponse } from 'msw';
+import { response, services, template } from './data';
 
 export const handlers = [
-  rest.get('/mocks/services', (_, res, ctx) => {
-    return res(ctx.delay(1000), ctx.status(200), ctx.json(services))
+  http.get('/mocks/services', async () => {
+    await delay(1000);
+    return HttpResponse.json(services, { status: 200 });
   }),
-  rest.get(
+  http.get(
     '/mocks/services/:serviceId/operations/:operationName/template',
-    (req, res, ctx) => {
-      const { serviceId, operationName } = req.params
-      return res(
-        ctx.delay(1000),
-        ctx.status(200),
-        ctx.json(template(serviceId as string, operationName as string))
-      )
+    async ({ params }) => {
+      await delay(1000);
+      const { serviceId, operationName } = params;
+      return HttpResponse.json(
+        template(serviceId as string, operationName as string),
+        { status: 200 }
+      );
     }
   ),
-  rest.post(
+
+  http.post(
     '/mocks/services/:serviceId/operations/:operationName',
-    (req, res, ctx) => {
-      const { serviceId, operationName } = req.params
-      return res(
-        ctx.delay(1000),
-        ctx.status(200),
-        ctx.json(response(serviceId as string, operationName as string))
-      )
+    async ({ params }) => {
+      await delay(1000);
+      const { serviceId, operationName } = params;
+      return HttpResponse.json(
+        response(serviceId as string, operationName as string),
+        { status: 200 }
+      );
     }
   ),
-]
+];

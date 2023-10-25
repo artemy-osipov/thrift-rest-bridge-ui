@@ -1,26 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-  import { USE_MOCKS } from '$lib/config/environment'
   import Header from '$lib/components/layout/Header.svelte'
-
-  let initializated = false
-
-  onMount(async () => {
-    if (USE_MOCKS) {
-      const { init } = await import('$lib/mock/init')
-      init().then(() => (initializated = true))
-    } else {
-      initializated = true
-    }
-  })
 </script>
 
 <section>
   <Header />
   <main>
-    {#if initializated}
-      <slot />
-    {/if}
+    <slot />
   </main>
 </section>
 
