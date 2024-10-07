@@ -12,7 +12,7 @@ Run UI via docker
 ```bash
 export API_URL=http://bridge.server.com # url to bridge rest api
 export BASE_HREF=/thrift-rest-bridge-ui # (optional) base url for reverse proxy
-docker run --rm -p 80:80 -e API_URL ghcr.io/artemy-osipov/thrift-rest-bridge-ui:0.5.0
+docker run --rm -p 80:8080 -e API_URL ghcr.io/artemy-osipov/thrift-rest-bridge-ui:0.5.0
 ```
 
 App will be accessible on `http://localhost:80`
