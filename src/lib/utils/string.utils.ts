@@ -33,7 +33,11 @@ export function copyToClipboard(text: string): Promise<void> {
     textArea.focus()
     textArea.select()
     return new Promise((res, rej) => {
-      document.execCommand('copy') ? res() : rej()
+      if (document.execCommand('copy')) {
+        res()
+      } else {
+        rej()
+      }
       textArea.remove()
     })
   }

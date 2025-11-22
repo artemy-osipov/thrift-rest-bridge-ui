@@ -15,6 +15,7 @@
         class="navbar-item"
         rel="noreferrer"
         href="https://github.com/artemy-osipov/thrift-rest-bridge-ui"
+        aria-label="github"
         target="_blank"
       >
         <svg
