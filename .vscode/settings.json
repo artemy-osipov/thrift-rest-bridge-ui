@@ -1,4 +1,9 @@
 {
   "editor.tabSize": 2,
-  "cSpell.words": ["jsoneditor"]
+  "cSpell.words": [
+    "jsoneditor"
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

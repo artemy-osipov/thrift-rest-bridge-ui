@@ -1,108 +1,95 @@
 <script lang="ts">
-  import { createEventDispatcher, onMount, tick } from 'svelte'
-  import FaSearch from 'svelte-icons/fa/FaSearch.svelte'
+  import { onMount, tick } from "svelte";
 
-  import type { Operation, OperationId, Service } from '$lib/data/service.model'
-  import { servicesStore } from '$lib/data/services.store'
-  import type { Readable } from 'svelte/store'
+  import type {
+    Operation,
+    OperationId,
+    Service,
+  } from "$lib/data/service.model";
+  import { servicesStore } from "$lib/data/services.store";
+  import type { Readable } from "svelte/store";
 
-  export let selected: OperationId | null
+  interface Props {
+    currentId: OperationId | null;
+    selected: (id: OperationId) => void;
+  }
 
-  type Events = { selected: OperationId }
-  const dispatch = createEventDispatcher<Events>()
+  let { currentId, selected }: Props = $props();
 
-  let search: string
-  let serviceListDiv: HTMLDivElement
+  let search: string = $state("");
+  let serviceListDiv: HTMLDivElement;
 
-  let filteredServices: Readable<Service[]>
-  $: filteredServices = servicesStore.filtered(search)
+  let filteredServices: Readable<Service[]> = $derived(
+    servicesStore.filtered(search),
+  );
 
   onMount(() => {
     servicesStore.fetch().then(async () => {
-      if (selected) {
-        await tick()
-        scrollTo(selected)
+      if (currentId) {
+        await tick();
+        scrollTo(currentId);
       }
     })
   })
 
   function scrollTo(operationId: OperationId) {
-    const elementId = `o_${operationId.serviceId}-${operationId.operationName}`
+    const elementId = `o_${operationId.serviceId}-${operationId.operationName}`;
     const operationElem = serviceListDiv.querySelector(
-      `li#${CSS.escape(elementId)}`
-    )
-    operationElem?.scrollIntoView({ block: 'center' })
+      `li#${CSS.escape(elementId)}`,
+    );
+    operationElem?.scrollIntoView({ block: "center" });
   }
 
-  function select(service: Service, operation: Operation): undefined {
-    dispatch('selected', {
+  function select(service: Service, operation: Operation) {
+    selected({
       serviceId: service.id,
       operationName: operation.name,
-    })
-    return
+    });
   }
 
-  $: isSelected = function (service: Service, operation: Operation): boolean {
+  function isSelected(service: Service, operation: Operation): boolean {
     return (
-      selected != null &&
-      selected.serviceId === service.id &&
-      selected.operationName === operation.name
-    )
+      currentId != null &&
+      currentId.serviceId === service.id &&
+      currentId.operationName === operation.name
+    );
   }
 </script>
 
-<form class="service-form">
-  <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Search" bind:value={search} />
-    <span class="icon is-left">
-      <FaSearch />
-    </span>
-  </p>
+<div class="h-full w-full flex flex-col">
+  <div class="input-group flex flex-row">
+    <input
+      class="ig-input"
+      type="search"
+      placeholder="Search"
+      bind:value={search}
+    />
+  </div>
 
-  <div class="menu service-list" bind:this={serviceListDiv}>
+  <div class="p-4 space-y-6 h-full overflow-auto" bind:this={serviceListDiv}>
     {#each $filteredServices as service (service.id)}
-      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <p
-        class="menu-label"
-        on:click|preventDefault={() => search=service.name}
-      >
-        {service.name}
-      </p>
-      <ul class="menu-list">
-        {#each service.operations as operation (operation.name)}
-          <li id="o_{service.id}-{operation.name}">
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <a
-              on:click|preventDefault={select(service, operation)}
-              class:is-active={isSelected(service, operation)}
-              role="menuitem"
-              tabindex="0">{operation.name}</a
-            >
-          </li>
-        {/each}
-      </ul>
+      <div>
+        <button
+          class="w-full text-left font-semibold text-gray-500 mb-2 hover:text-gray-700"
+          onclick={() => (search = service.name)}
+        >
+          {service.name}
+        </button>
+
+        <ul class="space-y-1">
+          {#each service.operations as operation (operation.name)}
+            <li id="o_{service.id}-{operation.name}">
+              <button
+                class="w-full text-left block px-3 py-2 text-sm rounded hover:preset-tonal hover:text-gray-400"
+                class:preset-tonal={isSelected(service, operation)}
+                onclick={() => select(service, operation)}
+              >
+                {operation.name}
+              </button>
+            </li>
+          {/each}
+        </ul>
+      </div>
     {/each}
   </div>
-</form>
-
-<style>
-  .service-form {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .service-list {
-    overflow: auto;
-    margin-top: 20px;
-    flex-grow: 1;
-  }
-
-  .service-list .menu-label {
-    text-transform: none;
-    font-size: 1em;
-    cursor: pointer;
-  }
-</style>
+</div>
